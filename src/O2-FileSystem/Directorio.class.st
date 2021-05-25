@@ -11,3 +11,9 @@ Class {
 Directorio class >> llamado:unString creadoEl:unaFecha [ 
 ^self new initializeConNombre: unString  yFechaCreacion: unaFecha 
 ]
+
+{ #category : #initialization }
+Directorio >> initializeConNombre:unNombre yFechaCreacion:unaFecha [
+contenido:=OrderedCollection new.
+super initializeConNombre: unNombre  yFechaCreacion: unaFecha 
+]
