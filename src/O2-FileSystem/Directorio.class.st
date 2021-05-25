@@ -14,6 +14,7 @@ Directorio class >> llamado:unString creadoEl:unaFecha [
 
 { #category : #'as yet unclassified' }
 Directorio >> agregar:elemento [
+"agrega un elemento, que puede ser un archivo o un subdirectorio, al contenido del directorio"
 contenido  add:elemento
 ]
 
