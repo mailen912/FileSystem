@@ -10,6 +10,7 @@ Class {
 
 { #category : #initialization }
 EstructuraArchivo >> initializeConNombre:unNombre yFechaCreacion:unaFecha [
+"initialize"
 nombre:=unNombre .
 fechaCreacion :=unaFecha . 
 ]
