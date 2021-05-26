@@ -59,6 +59,13 @@ DirectorioTest >> setUp [
 ]
 
 { #category : #tests }
+DirectorioTest >> testArchivoMasGrande [
+
+self assert: conVariosArchivos archivoMasGrande tamaño equals:2000000.
+self assert: conSubdirectorios archivoMasGrande tamaño equals:240000000
+]
+
+{ #category : #tests }
 DirectorioTest >> testArchivoMasNuevo [
 
 self assert: vacio archivoMasNuevo isNil.

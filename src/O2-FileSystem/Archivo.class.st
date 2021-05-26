@@ -13,6 +13,13 @@ Archivo class >> llamado:unString creadoEl:unaFecha kBytes:unNumero [
 ]
 
 { #category : #'as yet unclassified' }
+Archivo >> archivoMasGrande [
+"Retorna el archivo con mayor cantidad de bytes en cualquier nivel del filesystem
+contenido por directorio receptor."
+^self
+]
+
+{ #category : #'as yet unclassified' }
 Archivo >> archivoMasNuevo [
 "retorna el archivo con fecha de creacion más reciente en cualquier nivel del
 filesystem contenido por directorio receptor."
@@ -29,4 +36,9 @@ Archivo >> initializeConNombre:unString Fecha:unaFecha yKB:unNumero [
 
 self initializeConNombre: unString  yFechaCreacion:unaFecha  .
 tamañoKBytes :=unNumero .
+]
+
+{ #category : #'as yet unclassified' }
+Archivo >> tamaño [
+^tamañoKBytes 
 ]

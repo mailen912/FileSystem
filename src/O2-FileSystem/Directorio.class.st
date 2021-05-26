@@ -19,6 +19,13 @@ contenido  add:elemento
 ]
 
 { #category : #'as yet unclassified' }
+Directorio >> archivoMasGrande [
+"Retorna el archivo con mayor cantidad de bytes en cualquier nivel del filesystem
+contenido por directorio receptor."
+^(contenido collect: [ :elemento | elemento archivoMasGrande   ] )detectMax: [ :archivo | archivo tamaño  ].
+]
+
+{ #category : #'as yet unclassified' }
 Directorio >> archivoMasNuevo [
 "retorna el archivo con fecha de creacion más reciente en cualquier nivel del
 filesystem contenido por directorio receptor."
