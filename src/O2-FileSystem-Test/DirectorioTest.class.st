@@ -61,8 +61,8 @@ DirectorioTest >> setUp [
 { #category : #tests }
 DirectorioTest >> testArchivoMasGrande [
 
-self assert: conVariosArchivos archivoMasGrande tamaño equals:2000000.
-self assert: conSubdirectorios archivoMasGrande tamaño equals:240000000
+self assert: conVariosArchivos archivoMasGrande tamanoTotalOcupado  equals:2000000.
+self assert: conSubdirectorios archivoMasGrande tamanoTotalOcupado  equals:240000000
 ]
 
 { #category : #tests }
@@ -86,4 +86,14 @@ DirectorioTest >> testListadoDeContenido [
 	listadoStream << '/log/postgres (3 archivos)'.
 	listado := listadoStream contents.
 	self assert: conSubdirectorios listadoDeContenido = listado
+]
+
+{ #category : #tests }
+DirectorioTest >> testTamanoTotalOcupado [
+self assert: vacio tamanoTotalOcupado equals:32.
+self assert: conUnArchivo tamanoTotalOcupado equals: 160.
+self assert: conVariosArchivos tamanoTotalOcupado equals: 2010042.
+self assert: conSubdirectorios  tamanoTotalOcupado equals: (90000+32+1200000+2000000+2000000+2000000+32+240000000+32+1400000+4000000+4000000+32).
+
+
 ]

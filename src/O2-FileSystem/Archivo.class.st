@@ -2,7 +2,7 @@ Class {
 	#name : #Archivo,
 	#superclass : #EstructuraArchivo,
 	#instVars : [
-		'tamañoKBytes'
+		'tamanoKBytes'
 	],
 	#category : #'O2-FileSystem'
 }
@@ -35,10 +35,10 @@ Archivo >> fechaCreacion [
 Archivo >> initializeConNombre:unString Fecha:unaFecha yKB:unNumero [ 
 
 self initializeConNombre: unString  yFechaCreacion:unaFecha  .
-tamañoKBytes :=unNumero .
+tamanoKBytes :=unNumero .
 ]
 
 { #category : #'as yet unclassified' }
-Archivo >> tamaño [
-^tamañoKBytes 
+Archivo >> tamanoTotalOcupado [ 
+^tamanoKBytes 
 ]

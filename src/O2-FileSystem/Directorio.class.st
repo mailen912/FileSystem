@@ -22,7 +22,7 @@ contenido  add:elemento
 Directorio >> archivoMasGrande [
 "Retorna el archivo con mayor cantidad de bytes en cualquier nivel del filesystem
 contenido por directorio receptor."
-^(contenido collect: [ :elemento | elemento archivoMasGrande   ] )detectMax: [ :archivo | archivo tamaño  ].
+^(contenido collect: [ :elemento | elemento archivoMasGrande   ] )detectMax: [ :archivo | archivo tamanoTotalOcupado   ].
 ]
 
 { #category : #'as yet unclassified' }
@@ -36,4 +36,18 @@ filesystem contenido por directorio receptor."
 Directorio >> initializeConNombre:unNombre yFechaCreacion:unaFecha [
 contenido:=OrderedCollection new.
 super initializeConNombre: unNombre  yFechaCreacion: unaFecha 
+]
+
+{ #category : #'as yet unclassified' }
+Directorio >> tamano [ 
+^32
+]
+
+{ #category : #'as yet unclassified' }
+Directorio >> tamanoTotalOcupado [
+|suma|
+suma:=0.
+(contenido do:[:elemento| suma:=elemento tamanoTotalOcupado +suma ]) .
+^(suma + self tamano )
+"^((contenido sum:[:elemento | elemento tamanoTotalOcupado ])+ self tamano). este seria su refactoring pero no se porque me tira error de fuera de rango"
 ]
