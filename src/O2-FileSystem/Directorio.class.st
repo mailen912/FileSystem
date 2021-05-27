@@ -32,10 +32,38 @@ filesystem contenido por directorio receptor."
 ^(contenido collect: [ :elemento | elemento archivoMasNuevo  ] )detectMax: [ :archivo | archivo fechaCreacion  ].
 ]
 
+{ #category : #'as yet unclassified' }
+Directorio >> cantidadDeArchivos [
+|cantidad|
+cantidad:=(contenido count: [ :elemento | elemento class == Archivo ]).
+cantidad >0 ifTrue:[^(' (',(cantidad asString) ,' archivos)').]ifFalse:[^''].
+
+]
+
 { #category : #initialization }
 Directorio >> initializeConNombre:unNombre yFechaCreacion:unaFecha [
 contenido:=OrderedCollection new.
 super initializeConNombre: unNombre  yFechaCreacion: unaFecha 
+]
+
+{ #category : #'as yet unclassified' }
+Directorio >> listadoDeContenido [
+|listado todo|
+listado :=WriteStream on: String new.
+todo:='/', nombre.
+listado <<todo.
+contenido do:[:elemento| elemento listar:listado ] .
+^listado contents.
+]
+
+{ #category : #'as yet unclassified' }
+Directorio >> listar:stream [
+| todo |
+
+todo:=  String cr,stream contents,'/', nombre.
+stream<<todo.
+contenido do:[:elemento | elemento listar:stream ].
+
 ]
 
 { #category : #'as yet unclassified' }

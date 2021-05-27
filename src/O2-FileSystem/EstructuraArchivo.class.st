@@ -22,6 +22,11 @@ filesystem contenido por directorio receptor."
 ^self subclassResponsibility 
 ]
 
+{ #category : #'as yet unclassified' }
+EstructuraArchivo >> esDirectorio: elemento [
+^elemento class==self class 
+]
+
 { #category : #initialization }
 EstructuraArchivo >> initializeConNombre:unNombre yFechaCreacion:unaFecha [
 "initialize"

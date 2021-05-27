@@ -39,6 +39,11 @@ tamanoKBytes :=unNumero .
 ]
 
 { #category : #'as yet unclassified' }
+Archivo >> listar: stream [ 
+
+]
+
+{ #category : #'as yet unclassified' }
 Archivo >> tamanoTotalOcupado [ 
 ^tamanoKBytes 
 ]
