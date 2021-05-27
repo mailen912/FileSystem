@@ -45,9 +45,6 @@ Directorio >> tamano [
 
 { #category : #'as yet unclassified' }
 Directorio >> tamanoTotalOcupado [
-|suma|
-suma:=0.
-(contenido do:[:elemento| suma:=elemento tamanoTotalOcupado +suma ]) .
-^(suma + self tamano )
-"^((contenido sum:[:elemento | elemento tamanoTotalOcupado ])+ self tamano). este seria su refactoring pero no se porque me tira error de fuera de rango"
+"Retorna el espacio total ocupado en KB, incluyendo su contenido."
+^((contenido sumNumbers:[:elemento | elemento tamanoTotalOcupado ])+ self tamano). 
 ]
