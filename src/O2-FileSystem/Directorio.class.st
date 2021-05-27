@@ -52,7 +52,7 @@ Directorio >> listadoDeContenido [
 listado :=WriteStream on: String new.
 todo:='/', nombre.
 listado <<todo.
-contenido do:[:elemento| elemento listar:listado ] .
+contenido do:[:elemento| elemento listar:listado ultima:todo] .
 ^listado contents.
 ]
 
@@ -60,9 +60,19 @@ contenido do:[:elemento| elemento listar:listado ] .
 Directorio >> listar:stream [
 | todo |
 
-todo:=  String cr,stream contents,'/', nombre.
+todo:=  '/', nombre.
 stream<<todo.
 contenido do:[:elemento | elemento listar:stream ].
+
+]
+
+{ #category : #'as yet unclassified' }
+Directorio >> listar:stream ultima:ultima [
+| todo ult|
+todo:=  String cr,ultima,'/', nombre, self cantidadDeArchivos .
+ult:=String cr,ultima,'/', nombre.
+stream<<todo.
+contenido do:[:elemento | elemento listar:stream ultima:ult].
 
 ]
 
