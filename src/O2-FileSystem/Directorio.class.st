@@ -57,16 +57,6 @@ contenido do:[:elemento| elemento listar:listado ultima:todo] .
 ]
 
 { #category : #'as yet unclassified' }
-Directorio >> listar:stream [
-| todo |
-
-todo:=  '/', nombre.
-stream<<todo.
-contenido do:[:elemento | elemento listar:stream ].
-
-]
-
-{ #category : #'as yet unclassified' }
 Directorio >> listar:stream ultima:ultima [
 | todo ult|
 todo:=String cr, ultima,'/', nombre, self cantidadDeArchivos .

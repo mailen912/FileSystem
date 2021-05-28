@@ -75,9 +75,9 @@ self assert: (conSubdirectorios archivoMasNuevo )fechaCreacion yyyymmdd  equals:
 { #category : #running }
 DirectorioTest >> testListadoDeContenido [
 	| listado listadoStream|
-"	self assert: vacio listadoDeContenido equals: '/home'.
+	self assert: vacio listadoDeContenido equals: '/home'.
 	self assert: conUnArchivo listadoDeContenido equals: '/var (1 archivos)'.
-	self assert: conVariosArchivos listadoDeContenido equals: '/tmp (4 archivos)'."
+	self assert: conVariosArchivos listadoDeContenido equals: '/tmp (4 archivos)'.
 	listadoStream := WriteStream on: String new.
 	listadoStream << '/log (1 archivos)'; cr.
 	listadoStream << '/log/mysql (4 archivos)'; cr.
