@@ -67,10 +67,9 @@ self assert: conSubdirectorios archivoMasGrande tamanoTotalOcupado  equals:24000
 
 { #category : #tests }
 DirectorioTest >> testArchivoMasNuevo [
-
 self assert: vacio archivoMasNuevo isNil.
 self assert: (conVariosArchivos archivoMasNuevo )fechaCreacion yyyymmdd  equals:'2016-04-02' .
-self assert: (conSubdirectorios archivoMasNuevo )fechaCreacion yyyymmdd  equals:'2016-04-06' 
+self assert: (conSubdirectorios archivoMasNuevo )fechaCreacion yyyymmdd  equals:'2016-04-06' .
 ]
 
 { #category : #running }

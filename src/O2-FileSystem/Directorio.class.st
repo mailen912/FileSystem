@@ -27,9 +27,9 @@ contenido por directorio receptor."
 
 { #category : #'as yet unclassified' }
 Directorio >> archivoMasNuevo [
-"retorna el archivo con fecha de creacion más reciente en cualquier nivel del
+	"retorna el archivo con fecha de creacion más reciente en cualquier nivel del
 filesystem contenido por directorio receptor."
-^(contenido collect: [ :elemento | elemento archivoMasNuevo  ] )detectMax: [ :archivo | archivo fechaCreacion  ].
+	^( contenido collect: [ :elemento | elemento archivoMasNuevo ])detectMax: [ :archivo | archivo fechaCreacion ]
 ]
 
 { #category : #'as yet unclassified' }
@@ -51,7 +51,7 @@ Directorio >> listadoDeContenido [
 |listado todo|
 listado :=WriteStream on: String new.
 todo:='/', nombre.
-listado <<todo.
+listado <<(todo,self cantidadDeArchivos) .
 contenido do:[:elemento| elemento listar:listado ultima:todo] .
 ^listado contents.
 ]
@@ -69,8 +69,8 @@ contenido do:[:elemento | elemento listar:stream ].
 { #category : #'as yet unclassified' }
 Directorio >> listar:stream ultima:ultima [
 | todo ult|
-todo:=  String cr,ultima,'/', nombre, self cantidadDeArchivos .
-ult:=String cr,ultima,'/', nombre.
+todo:=String cr, ultima,'/', nombre, self cantidadDeArchivos .
+ult:=ultima,'/', nombre.
 stream<<todo.
 contenido do:[:elemento | elemento listar:stream ultima:ult].
 
