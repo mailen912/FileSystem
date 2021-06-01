@@ -39,12 +39,7 @@ tamanoKBytes :=unNumero .
 ]
 
 { #category : #'as yet unclassified' }
-Archivo >> listar: stream [ 
-
-]
-
-{ #category : #'as yet unclassified' }
-Archivo >> listar: stream ultima:ultima [
+Archivo >> listar: stream ultimaLinea:ultima [
 
 ]
 

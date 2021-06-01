@@ -55,7 +55,8 @@ DirectorioTest >> setUp [
 						agregar: (Archivo llamado: 'pg01.log' creadoEl: '2015-04-12' asDate kBytes: 1400000);
 						agregar: (Archivo llamado: 'pg02.log' creadoEl: '2016-03-08' asDate kBytes: 4000000);
 						agregar: (Archivo llamado: 'pg03.log' creadoEl: '2016-02-13' asDate kBytes: 4000000);
-						yourself)
+						yourself)";
+						agregar: vacio."
 ]
 
 { #category : #tests }
@@ -70,6 +71,14 @@ DirectorioTest >> testArchivoMasNuevo [
 self assert: vacio archivoMasNuevo isNil.
 self assert: (conVariosArchivos archivoMasNuevo )fechaCreacion yyyymmdd  equals:'2016-04-02' .
 self assert: (conSubdirectorios archivoMasNuevo )fechaCreacion yyyymmdd  equals:'2016-04-06' .
+]
+
+{ #category : #tests }
+DirectorioTest >> testCantidadDeArchivos [
+self assert: vacio cantidadDeArchivos equals:''.
+self assert: conSubdirectorios cantidadDeArchivos equals:' (1 archivos)'.
+self assert: conVariosArchivos cantidadDeArchivos equals: ' (4 archivos)'.
+
 ]
 
 { #category : #running }

@@ -40,6 +40,7 @@ filesystem contenido por directorio receptor."
 
 { #category : #'as yet unclassified' }
 Directorio >> cantidadDeArchivos [
+"Devuelve un string indicando la cantidad de archivos de un directorio cuando la misma es igual o mayor a 1, caso contrario devuelve un string vacio"
 |cantidad|
 cantidad:=(contenido count: [ :elemento | elemento class == Archivo ]).
 cantidad >0 ifTrue:[^(' (',(cantidad asString) ,' archivos)').]ifFalse:[^''].
@@ -58,17 +59,17 @@ Directorio >> listadoDeContenido [
 listado :=WriteStream on: String new.
 todo:='/', nombre.
 listado <<(todo,self cantidadDeArchivos) .
-contenido do:[:elemento| elemento listar:listado ultima:todo] .
+contenido do:[:elemento| elemento listar:listado ultimaLinea:todo] .
 ^listado contents.
 ]
 
 { #category : #'as yet unclassified' }
-Directorio >> listar:stream ultima:ultima [
+Directorio >> listar:stream ultimaLinea:ultima [
 | todo ult|
 todo:=String cr, ultima,'/', nombre, self cantidadDeArchivos .
 ult:=ultima,'/', nombre.
 stream<<todo.
-contenido do:[:elemento | elemento listar:stream ultima:ult].
+contenido do:[:elemento | elemento listar:stream ultimaLinea:ult].
 
 ]
 
