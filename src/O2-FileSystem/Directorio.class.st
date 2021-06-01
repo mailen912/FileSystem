@@ -22,14 +22,20 @@ contenido  add:elemento
 Directorio >> archivoMasGrande [
 "Retorna el archivo con mayor cantidad de bytes en cualquier nivel del filesystem
 contenido por directorio receptor."
-^(contenido collect: [ :elemento | elemento archivoMasGrande   ] )detectMax: [ :archivo | archivo tamanoTotalOcupado   ].
+|archivos|
+archivos:=(contenido collect: [ :elemento | elemento archivoMasGrande   ] ).
+archivos remove: nil ifAbsent:[0].
+^ archivos detectMax: [ :archivo | archivo tamanoTotalOcupado   ]
+
 ]
 
 { #category : #'as yet unclassified' }
 Directorio >> archivoMasNuevo [
 	"retorna el archivo con fecha de creacion más reciente en cualquier nivel del
 filesystem contenido por directorio receptor."
-	^( contenido collect: [ :elemento | elemento archivoMasNuevo ])detectMax: [ :archivo | archivo fechaCreacion ]
+
+	^( (contenido collect: [ :elemento | elemento archivoMasNuevo ]) reject: [ :arch | arch isNil ])
+		detectMax: [ :archivo | archivo fechaCreacion ]
 ]
 
 { #category : #'as yet unclassified' }
