@@ -59,7 +59,7 @@ Directorio >> listadoDeContenido [
 listado :=WriteStream on: String new.
 todo:='/', nombre.
 listado <<(todo,self cantidadDeArchivos) .
-contenido do:[:elemento| elemento listar:listado ultimaLinea:todo] .
+self recorridoDeContenido: listado  conUltimaLinea: todo.
 ^listado contents.
 ]
 
@@ -69,8 +69,13 @@ Directorio >> listar:stream ultimaLinea:ultima [
 todo:=String cr, ultima,'/', nombre, self cantidadDeArchivos .
 ult:=ultima,'/', nombre.
 stream<<todo.
-contenido do:[:elemento | elemento listar:stream ultimaLinea:ult].
+self recorridoDeContenido: stream conUltimaLinea: ult.
 
+]
+
+{ #category : #'as yet unclassified' }
+Directorio >> recorridoDeContenido:listado conUltimaLinea:ultima [
+contenido do:[:elemento| elemento listar:listado ultimaLinea:ultima] .
 ]
 
 { #category : #'as yet unclassified' }
