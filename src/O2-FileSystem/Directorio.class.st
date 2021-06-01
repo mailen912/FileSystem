@@ -81,6 +81,7 @@ contenido do:[:elemento| elemento listar:listado ultimaLinea:ultima] .
 
 { #category : #'as yet unclassified' }
 Directorio >> tamano [ 
+"Devuelve un tamano fijo de directorio"
 ^32
 ]
 
