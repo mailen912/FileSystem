@@ -22,10 +22,9 @@ contenido  add:elemento
 Directorio >> archivoMasGrande [
 "Retorna el archivo con mayor cantidad de bytes en cualquier nivel del filesystem
 contenido por directorio receptor."
-|archivos|
-archivos:=(contenido collect: [ :elemento | elemento archivoMasGrande   ] ).
-archivos remove: nil ifAbsent:[0].
-^ archivos detectMax: [ :archivo | archivo tamanoTotalOcupado   ]
+
+^( (contenido collect: [ :elemento | elemento archivoMasNuevo ]) reject: [ :arch | arch isNil ])
+		detectMax: [ :archivo | archivo tamanoTotalOcupado  ]
 
 ]
 
