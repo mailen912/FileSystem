@@ -54,6 +54,8 @@ super initializeConNombre: unNombre  yFechaCreacion: unaFecha
 
 { #category : #'as yet unclassified' }
 Directorio >> listadoDeContenido [
+"Retorna un string con el listado del contenido del directorio imprimiendo el
+path completo de cada elemento"
 |listado todo|
 listado :=WriteStream on: String new.
 todo:='/', nombre.
