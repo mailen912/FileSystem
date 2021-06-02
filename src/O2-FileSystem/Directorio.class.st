@@ -37,7 +37,7 @@ filesystem contenido por directorio receptor."
 		detectMax: [ :archivo | archivo fechaCreacion ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'private ' }
 Directorio >> cantidadDeArchivos [
 "Devuelve un string indicando la cantidad de archivos de un directorio cuando la misma es igual o mayor a 1, caso contrario devuelve un string vacio"
 |cantidad|
@@ -74,7 +74,7 @@ self recorridoDeContenido: stream conUltimaLinea: ult.
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'private ' }
 Directorio >> recorridoDeContenido:listado conUltimaLinea:ultima [
 contenido do:[:elemento| elemento listar:listado ultimaLinea:ultima] .
 ]
