@@ -46,11 +46,6 @@ cantidad >0 ifTrue:[^(' (',(cantidad asString) ,' archivos)').]ifFalse:[^''].
 
 ]
 
-{ #category : #'as yet unclassified' }
-Directorio >> contarComoArchivo [ 
-^false
-]
-
 { #category : #initialization }
 Directorio >> initializeConNombre:unNombre yFechaCreacion:unaFecha [
 contenido:=OrderedCollection new.
