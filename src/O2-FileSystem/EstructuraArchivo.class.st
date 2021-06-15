@@ -22,6 +22,16 @@ filesystem contenido por directorio receptor."
 ^self subclassResponsibility 
 ]
 
+{ #category : #'as yet unclassified' }
+EstructuraArchivo >> contarComoArchivo [ 
+^false
+]
+
+{ #category : #accessing }
+EstructuraArchivo >> fechaCreacion [
+^fechaCreacion 
+]
+
 { #category : #initialization }
 EstructuraArchivo >> initializeConNombre:unNombre yFechaCreacion:unaFecha [
 "initialize"

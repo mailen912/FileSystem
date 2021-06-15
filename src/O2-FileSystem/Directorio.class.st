@@ -23,7 +23,7 @@ Directorio >> archivoMasGrande [
 "Retorna el archivo con mayor cantidad de bytes en cualquier nivel del filesystem
 contenido por directorio receptor."
 
-^( (contenido collect: [ :elemento | elemento archivoMasNuevo ]) reject: [ :arch | arch isNil ])
+^( (contenido collect: [ :elemento | elemento archivoMasGrande  ]) reject: [ :arch | arch isNil ])
 		detectMax: [ :archivo | archivo tamanoTotalOcupado  ]
 
 ]
@@ -41,9 +41,14 @@ filesystem contenido por directorio receptor."
 Directorio >> cantidadDeArchivos [
 "Devuelve un string indicando la cantidad de archivos de un directorio cuando la misma es igual o mayor a 1, caso contrario devuelve un string vacio"
 |cantidad|
-cantidad:=(contenido count: [ :elemento | elemento class == Archivo ]).
+cantidad:=(contenido count: [ :elemento | elemento contarComoArchivo ]).
 cantidad >0 ifTrue:[^(' (',(cantidad asString) ,' archivos)').]ifFalse:[^''].
 
+]
+
+{ #category : #'as yet unclassified' }
+Directorio >> contarComoArchivo [ 
+^false
 ]
 
 { #category : #initialization }

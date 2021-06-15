@@ -26,9 +26,9 @@ filesystem contenido por directorio receptor."
 ^self 
 ]
 
-{ #category : #accessing }
-Archivo >> fechaCreacion [
-^fechaCreacion 
+{ #category : #'as yet unclassified' }
+Archivo >> contarComoArchivo [
+^true
 ]
 
 { #category : #initialization }
